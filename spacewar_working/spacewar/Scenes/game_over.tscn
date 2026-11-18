@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bre04atcwwy77"]
+
+[ext_resource type="Script" uid="uid://c21mr2src4ax8" path="res://Scenes/game_over.gd" id="1_8fo1c"]
+[ext_resource type="FontFile" uid="uid://dwytpxyyehlg2" path="res://Mono_Biletik-Regular_1_0.ttf" id="1_ojehl"]
+
+[node name="GameOver" type="Control" unique_id=401086686]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8fo1c")
+
+[node name="BG" type="ColorRect" parent="." unique_id=693776891]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1360015, 0.13654888, 0.23976883, 1)
+metadata/_edit_lock_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=554915291]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=18711861]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=670214744]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.63011855, 0.63011855, 0.99346554, 1)
+theme_override_fonts/font = ExtResource("1_ojehl")
+theme_override_font_sizes/font_size = 63
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CenterContainer/VBoxContainer" unique_id=64023787]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.63011855, 0.63011855, 0.99346554, 1)
+theme_override_fonts/font = ExtResource("1_ojehl")
+theme_override_font_sizes/font_size = 29
+text = "your score:"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=729496464]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -173.0
+offset_top = -40.0
+offset_right = 173.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_top = -27
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1459222743]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ojehl")
+theme_override_font_sizes/font_size = 20
+text = "Press R to try again"
+horizontal_alignment = 1
+vertical_alignment = 2

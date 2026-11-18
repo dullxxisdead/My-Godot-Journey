@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bo32on7kx3yj1"]
+
+[ext_resource type="Texture2D" uid="uid://chai0c1rdav0j" path="res://Sprites/platform.png" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://c5a6xj8vju42v" path="res://character_body_2d.gd" id="1_epypp"]
+[ext_resource type="Script" uid="uid://j42wfugyg3oi" path="res://ball.gd" id="3_0hol4"]
+[ext_resource type="Texture2D" uid="uid://cv6rw7qdq3mny" path="res://Sprites/ball.png" id="3_epypp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbbtj"]
+size = Vector2(198, 48)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0hol4"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alls7"]
+size = Vector2(1151.75, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sj0jd"]
+size = Vector2(10, 648)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_epypp"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epypp"]
+size = Vector2(88, 87.5)
+
+[node name="MainScene" type="Node2D" unique_id=1534082785]
+
+[node name="Platform" type="CharacterBody2D" parent="." unique_id=1963068205]
+disable_mode = 1
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_epypp")
+
+[node name="Sprite" type="Sprite2D" parent="Platform" unique_id=135979747]
+position = Vector2(574, 598)
+texture = ExtResource("1_0e48y")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Platform" unique_id=1547017783]
+position = Vector2(578, 597)
+shape = SubResource("RectangleShape2D_nbbtj")
+debug_color = Color(3.3691526e-06, 0.5657988, 0.86547196, 0.41960785)
+
+[node name="Borders" type="StaticBody2D" parent="." unique_id=74773146]
+physics_material_override = SubResource("PhysicsMaterial_0hol4")
+
+[node name="1" type="CollisionShape2D" parent="Borders" unique_id=1759052383]
+position = Vector2(576.125, -5)
+shape = SubResource("RectangleShape2D_alls7")
+
+[node name="2" type="CollisionShape2D" parent="Borders" unique_id=1810790942]
+position = Vector2(1157, 324)
+shape = SubResource("RectangleShape2D_sj0jd")
+
+[node name="3" type="CollisionShape2D" parent="Borders" unique_id=2037328202]
+position = Vector2(576, 653)
+shape = SubResource("RectangleShape2D_alls7")
+
+[node name="4" type="CollisionShape2D" parent="Borders" unique_id=665891958]
+position = Vector2(-5, 324)
+shape = SubResource("RectangleShape2D_sj0jd")
+
+[node name="Ball" type="RigidBody2D" parent="." unique_id=2126266792]
+position = Vector2(304, 181)
+physics_material_override = SubResource("PhysicsMaterial_epypp")
+gravity_scale = 0.0
+linear_velocity = Vector2(300, -400)
+linear_damp_mode = 1
+angular_damp_mode = 1
+angular_damp = 100.0
+script = ExtResource("3_0hol4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball" unique_id=1422302303]
+texture = ExtResource("3_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=1511568503]
+position = Vector2(-3, 1.25)
+shape = SubResource("RectangleShape2D_epypp")

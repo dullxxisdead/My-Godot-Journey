@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cggjmgnis6rgp"]
+
+[ext_resource type="Script" uid="uid://scgnwqb6k0ws" path="res://Scenes/ui.gd" id="1_nf4gj"]
+[ext_resource type="FontFile" uid="uid://dwytpxyyehlg2" path="res://Mono_Biletik-Regular_1_0.ttf" id="1_qdvrb"]
+
+[node name="UI" type="CanvasLayer" unique_id=2007357915 groups=["UI"]]
+script = ExtResource("1_nf4gj")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1043724589]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_right = 42.0
+offset_bottom = 49.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 15
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=573954790]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.6839954, 0.5932345, 0.6425464, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("1_qdvrb")
+theme_override_font_sizes/font_size = 36
+text = "0"
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=228734467]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 166.0
+grow_vertical = 0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2" unique_id=1752022265]
+layout_mode = 2
+
+[node name="ScoreTimer" type="Timer" parent="." unique_id=391127705]
+autostart = true
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
