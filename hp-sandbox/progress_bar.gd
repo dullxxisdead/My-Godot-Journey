@@ -26,7 +26,7 @@ func pick_event():
 	return
 
 func update_healthbar():
-	var ratio = float(health) / max_health
+	var _health_ratio = float(health) / max_health
 	var hp_color = hp_gradient.sample(ratio)
 	var fill_style = get_theme_stylebox("fill")
 	fill_style.bg_color = hp_color
@@ -65,7 +65,7 @@ func _ready() -> void:
 	hp_gradient.set_color(0, Color.CRIMSON)
 	hp_gradient.set_color(1, Color.SEA_GREEN)
 	hp_gradient.add_point(0.5, Color.GOLDENROD)
-	var ratio = float(health) / max_health
+	var _health_ratio = float(health) / max_health
 	var _hp_color = hp_gradient.sample(ratio)
 	update_healthbar()
 
