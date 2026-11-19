@@ -26,12 +26,12 @@ func pick_event():
 	return
 
 func update_healthbar():
+	value = health
+	max_value = max_health
 	var hp_color = hp_gradient.sample(ratio)
 	var _health_ratio = float(health) / max_health
 	var fill_style = get_theme_stylebox("fill")
 	fill_style.bg_color = hp_color
-	value = health
-	max_value = max_health
 	if health < 1:
 		get_tree().change_scene_to_file("res://death_screen.tscn")
 
