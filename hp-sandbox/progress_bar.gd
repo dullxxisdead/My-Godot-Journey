@@ -26,8 +26,8 @@ func pick_event():
 	return
 
 func update_healthbar():
-	var _health_ratio = float(health) / max_health
 	var hp_color = hp_gradient.sample(ratio)
+	var _health_ratio = float(health) / max_health
 	var fill_style = get_theme_stylebox("fill")
 	fill_style.bg_color = hp_color
 	value = health
