@@ -25,6 +25,7 @@ func pick_event():
 		pass
 	return
 
+
 func update_healthbar():
 	value = health
 	max_value = max_health
