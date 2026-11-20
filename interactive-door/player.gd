@@ -18,4 +18,3 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 	velocity = velocity.normalized() * speed
 	move_and_slide()
-	print("velocity is ", velocity)

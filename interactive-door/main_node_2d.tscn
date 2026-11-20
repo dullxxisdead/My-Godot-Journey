@@ -8,10 +8,16 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_822dq"]
 size = Vector2(29, 53)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruqxh"]
+size = Vector2(50, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_njvsp"]
+size = Vector2(82, 78)
+
 [node name="MainNode2D" type="Node2D" unique_id=402872124]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=192145232]
-position = Vector2(392, 220)
+position = Vector2(404, 389)
 script = ExtResource("1_f73ox")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1435625381]
@@ -21,7 +27,21 @@ texture = ExtResource("1_wqkee")
 shape = SubResource("RectangleShape2D_822dq")
 
 [node name="Door" type="Node2D" parent="." unique_id=105114842]
+position = Vector2(400, 167)
 script = ExtResource("3_45nqt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Door" unique_id=1338284614]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D" unique_id=8700390]
+shape = SubResource("RectangleShape2D_ruqxh")
 
 [node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=1562474129]
 texture = ExtResource("4_3v44e")
+
+[node name="Area2D" type="Area2D" parent="Door" unique_id=219383147]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D" unique_id=972353304]
+shape = SubResource("RectangleShape2D_njvsp")
+
+[connection signal="body_entered" from="Door/Area2D" to="Door" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Door/Area2D" to="Door" method="_on_area_2d_body_exited"]
