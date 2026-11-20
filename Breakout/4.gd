@@ -33,6 +33,7 @@ func _ready() -> void:
 	take_damage()
 	print(health)
 	heal()
+	
 	print(health)
 	take_damage()
 	print(health)
