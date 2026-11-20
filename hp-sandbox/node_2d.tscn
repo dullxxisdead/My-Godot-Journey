@@ -2,8 +2,13 @@
 
 [ext_resource type="Script" uid="uid://eggqbf5jvp4v" path="res://progress_bar.gd" id="1_wtcfe"]
 [ext_resource type="FontFile" uid="uid://durv84r4x8ed0" path="res://font/modula.ttf" id="2_0e48y"]
-[ext_resource type="Texture2D" uid="uid://c6silfgmd4tdh" path="res://sprites/button_damage.png" id="2_epypp"]
-[ext_resource type="Texture2D" uid="uid://ceqhxg5b0x38e" path="res://sprites/button_damage_pressed.png" id="3_0hol4"]
+[ext_resource type="Texture2D" uid="uid://ccpg1i7vd26sg" path="res://sprites/button_damage_pressed.png" id="3_0hol4"]
+[ext_resource type="Texture2D" uid="uid://01w77xyboucj" path="res://sprites/button.png" id="3_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://de16arekl35sl" path="res://sprites/button_hover.png" id="5_kdubu"]
+[ext_resource type="Texture2D" uid="uid://07vdwru6omku" path="res://sprites/button_heal_pressed.png" id="6_kdubu"]
+[ext_resource type="Texture2D" uid="uid://bdeusj7u2w2e1" path="res://sprites/poison.png" id="7_d21ai"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d21ai"]
 
 [node name="Main" type="Node2D" unique_id=1292022294]
 
@@ -16,19 +21,34 @@ offset_bottom = 40.0
 [node name="health_bar" type="ProgressBar" parent="UI" unique_id=300668064]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 100.0
-offset_top = 250.0
-offset_right = 1000.0
-offset_bottom = 300.0
+anchor_right = 28.805002
+anchor_bottom = 16.186
+offset_left = 140.0
+offset_top = 137.0
+offset_right = -112.20007
+offset_bottom = -460.44006
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
 theme_override_fonts/font = ExtResource("2_0e48y")
 theme_override_font_sizes/font_size = 24
+theme_override_styles/fill = SubResource("StyleBoxFlat_d21ai")
 script = ExtResource("1_wtcfe")
+
+[node name="TimerHeal" type="Timer" parent="UI/health_bar" unique_id=867302219]
+wait_time = 3.0
+autostart = true
+
+[node name="poison" type="TextureRect" parent="UI/health_bar" unique_id=1382902714]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 55.0
+offset_right = 80.0
+offset_bottom = 125.0
+texture = ExtResource("7_d21ai")
 
 [node name="button_damage" type="TextureButton" parent="UI" unique_id=1079130495]
 layout_mode = 0
@@ -37,9 +57,9 @@ offset_top = 480.0
 offset_right = 350.0
 offset_bottom = 630.0
 scale = Vector2(0.8, 0.8)
-texture_normal = ExtResource("2_epypp")
-texture_pressed = ExtResource("2_epypp")
-texture_hover = ExtResource("3_0hol4")
+texture_normal = ExtResource("3_q6r6c")
+texture_pressed = ExtResource("3_0hol4")
+texture_hover = ExtResource("5_kdubu")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="UI/button_damage" unique_id=443703073]
@@ -68,9 +88,9 @@ offset_bottom = 590.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(0.8, 0.8)
-texture_normal = ExtResource("2_epypp")
-texture_pressed = ExtResource("2_epypp")
-texture_hover = ExtResource("3_0hol4")
+texture_normal = ExtResource("3_q6r6c")
+texture_pressed = ExtResource("6_kdubu")
+texture_hover = ExtResource("5_kdubu")
 
 [node name="Label" type="Label" parent="UI/button_heal" unique_id=15328206]
 layout_mode = 0
@@ -84,33 +104,53 @@ text = "Лечить"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="button_revive" type="TextureButton" parent="UI" unique_id=974363759]
+[node name="button_poison" type="TextureButton" parent="UI" unique_id=1824159555]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = 929.0
-offset_top = 401.0
-offset_right = 1229.0
-offset_bottom = 551.0
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = 332.0
+offset_right = 330.0
+offset_bottom = 482.0
 grow_horizontal = 2
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("2_epypp")
-texture_pressed = ExtResource("2_epypp")
-texture_hover = ExtResource("3_0hol4")
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("3_q6r6c")
+texture_pressed = ExtResource("3_0hol4")
+texture_hover = ExtResource("5_kdubu")
 
-[node name="Label" type="Label" parent="UI/button_revive" unique_id=1283048638]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 292.0
-offset_bottom = 142.0
+[node name="Label" type="Label" parent="UI/button_poison" unique_id=156369038]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.5
+offset_top = 8.75
+offset_right = -8.7500305
+offset_bottom = -7.5000153
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_0e48y")
-theme_override_font_sizes/font_size = 32
-text = "Воскресить"
+theme_override_font_sizes/font_size = 26
+text = "Наложить
+отравление"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="UI" unique_id=499078371]
+layout_mode = 0
+offset_left = 914.0
+offset_top = 427.0
+offset_right = 1046.0
+offset_bottom = 459.0
+theme_override_fonts/font = ExtResource("2_0e48y")
+text = "Random event"
+
+[connection signal="timeout" from="UI/health_bar/TimerHeal" to="UI/health_bar" method="_on_timer_timeout"]
 [connection signal="pressed" from="UI/button_damage" to="UI/health_bar" method="_on_button_damage_pressed"]
 [connection signal="pressed" from="UI/button_heal" to="UI/health_bar" method="_on_button_heal_pressed"]
-[connection signal="pressed" from="UI/button_revive" to="UI/health_bar" method="_on_button_revive_pressed"]
+[connection signal="pressed" from="UI/button_poison" to="UI/health_bar" method="_on_button_poison_pressed"]
+[connection signal="pressed" from="UI/Button" to="UI/health_bar" method="_on_button_pressed"]

@@ -2,17 +2,13 @@ extends Node2D
 
 @export var health = 100
 
+@export var healing = 30
+
 @export var max_health = 100
 
-func show_damage(enemy_name, damage):
-	print(enemy_name, "нанес" , damage, "урона.")
-
-func check_health():
+func heal():
 	if health <= 0:
 		print("Погиб")
-
-func heal(healing):
-	if health <= 0:
 		return
 	if health <= max_health - 1:
 		health = health + healing
@@ -21,19 +17,30 @@ func heal(healing):
 	print("Здоровье восполнено до ", health)
 
 
-func take_damage(damage, enemy_name):
+func take_damage():
 	if health <= 0:
 		return
-	health = health - damage
-	show_damage(enemy_name, damage)
-	check_health()
+	else:
+		health = health - 30
 
 func _ready() -> void:
-	take_damage(10, "Зомби")
+	take_damage()
 	print(health)
-	take_damage(25, "Зомби")
+	heal()
 	print(health)
-	take_damage(40, "Зомби")
+	take_damage()
 	print(health)
-	heal(75)
+	take_damage()
 	print(health)
+	heal()
+	
+	print(health)
+	take_damage()
+	print(health)
+	take_damage()
+	print(health)
+	take_damage()
+	print(health)
+	heal()
+	print(health)
+	
