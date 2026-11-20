@@ -1,14 +1,21 @@
 [gd_scene format=3 uid="uid://cul87gddpc1g6"]
 
-[node name="death_screen" type="Node2D" unique_id=545537282]
-
-[node name="DS" type="Control" parent="." unique_id=1458336051]
+[node name="death_screen" type="Control" unique_id=1226417144]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+
+[node name="DS" type="Control" parent="." unique_id=1458336051]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="you_are_dead" type="Label" parent="DS" unique_id=1048037992]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -46,3 +46,4 @@ func _on_button_revive_pressed() -> void:
 	else:
 		return
 	update_healthbar()
+	
