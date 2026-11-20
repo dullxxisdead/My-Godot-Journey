@@ -2,17 +2,18 @@ extends Node2D
 
 var player_have_key = false
 
-var door_locked = true
+var door_locked = false
 
 var door_open = false
 
-var player_nearby = false
+var player_nearby
 
 func _process(delta: float) -> void:
+	player_nearby = false
 	door_interaction()
 
 func door_interaction():
-	if Input.is_action_just_pressed("PlayerAction"):
+	if Input.is_action_just_pressed("PlayerAction") and player_nearby == true:
 		if door_locked == true:
 			unlock_door()
 		else:
