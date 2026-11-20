@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dq5ca8wg8rd7a" path="res://player.gd" id="1_f73ox"]
 [ext_resource type="Texture2D" uid="uid://c2ktovkgekwak" path="res://Sprites/Player_main.png" id="1_wqkee"]
+[ext_resource type="Script" uid="uid://c7f1sbqwfvoyt" path="res://door.gd" id="3_45nqt"]
+[ext_resource type="Texture2D" uid="uid://dbhq1pw8hf48b" path="res://Sprites/Door Locked.png" id="4_3v44e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_822dq"]
 size = Vector2(29, 53)
@@ -17,3 +19,9 @@ texture = ExtResource("1_wqkee")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=945573357]
 shape = SubResource("RectangleShape2D_822dq")
+
+[node name="Door" type="Node2D" parent="." unique_id=105114842]
+script = ExtResource("3_45nqt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=1562474129]
+texture = ExtResource("4_3v44e")
