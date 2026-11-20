@@ -17,13 +17,16 @@ size = Vector2(82, 78)
 [node name="MainNode2D" type="Node2D" unique_id=402872124]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=192145232]
+visibility_layer = 2
 position = Vector2(404, 389)
 script = ExtResource("1_f73ox")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1435625381]
+visibility_layer = 2
 texture = ExtResource("1_wqkee")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=945573357]
+visibility_layer = 2
 shape = SubResource("RectangleShape2D_822dq")
 
 [node name="Door" type="Node2D" parent="." unique_id=105114842]
@@ -39,8 +42,10 @@ shape = SubResource("RectangleShape2D_ruqxh")
 texture = ExtResource("4_3v44e")
 
 [node name="Area2D" type="Area2D" parent="Door" unique_id=219383147]
+light_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D" unique_id=972353304]
+light_mask = 2
 shape = SubResource("RectangleShape2D_njvsp")
 
 [connection signal="body_entered" from="Door/Area2D" to="Door" method="_on_area_2d_body_entered"]

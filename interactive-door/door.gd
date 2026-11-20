@@ -6,10 +6,9 @@ var door_locked = false
 
 var door_open = false
 
-var player_nearby
+var player_nearby = false
 
 func _process(delta: float) -> void:
-	player_nearby = false
 	door_interaction()
 
 func door_interaction():
@@ -42,7 +41,7 @@ func close_door():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	player_nearby = true
 	print("Подошел к двери")
-
+	print(body.name)
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	player_nearby = false
