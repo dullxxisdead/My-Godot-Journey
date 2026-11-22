@@ -2,7 +2,7 @@ extends Node2D
 
 var player_have_key = false
 
-var door_locked = false
+var door_locked = true
 
 var door_open = false
 
@@ -45,3 +45,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	player_nearby = false
 	print("Отошел от двери")
+
+
+func _on_area_2d_PLAYER_entered(body: Node2D) -> void:
+	player_have_key = true
+	print("Взяд ключ скрипт двери")
