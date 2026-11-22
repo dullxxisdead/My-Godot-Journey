@@ -68,4 +68,4 @@ shape = SubResource("RectangleShape2D_emy68")
 
 [connection signal="body_entered" from="Door/Area2D" to="Door" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door/Area2D" to="Door" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Key/Area2D" to="Door" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Key/Area2D" to="Key" method="_on_area_2d_body_entered"]
