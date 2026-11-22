@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c2ktovkgekwak" path="res://Sprites/Player_main.png" id="1_wqkee"]
 [ext_resource type="Script" uid="uid://c7f1sbqwfvoyt" path="res://door.gd" id="3_45nqt"]
 [ext_resource type="Texture2D" uid="uid://dbhq1pw8hf48b" path="res://Sprites/Door Locked.png" id="4_3v44e"]
+[ext_resource type="Texture2D" uid="uid://g6rys42scc40" path="res://Sprites/Key.png" id="5_3v44e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_822dq"]
 size = Vector2(29, 53)
@@ -13,6 +14,9 @@ size = Vector2(50, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_njvsp"]
 size = Vector2(82, 78)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emy68"]
+size = Vector2(45, 22)
 
 [node name="MainNode2D" type="Node2D" unique_id=402872124]
 
@@ -46,6 +50,18 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D" unique_id=972353304]
 light_mask = 3
 shape = SubResource("RectangleShape2D_njvsp")
+
+[node name="Key" type="Node2D" parent="." unique_id=757009309]
+position = Vector2(537, 297)
+
+[node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=1080245096]
+texture = ExtResource("5_3v44e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key" unique_id=344103188]
+position = Vector2(-1.5, 1)
+shape = SubResource("RectangleShape2D_emy68")
+
+[node name="Area2D" type="Area2D" parent="Key" unique_id=1374685647]
 
 [connection signal="body_entered" from="Door/Area2D" to="Door" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door/Area2D" to="Door" method="_on_area_2d_body_exited"]
