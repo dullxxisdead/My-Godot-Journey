@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed = 100
 
+
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("MovePlayerUP"):
 		velocity.y = -speed
@@ -18,3 +19,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 	velocity = velocity.normalized() * speed
 	move_and_slide()
+
+
+func _on_area_2d_PLAYER_entered(body: Node2D) -> void:
+	$PlayerSprite.hide()
+	$PlayerKeySprite.show()
+
+
+func _on_door_door_unlocked() -> void:
+	$PlayerKeySprite.hide()
+	$PlayerSprite.show()

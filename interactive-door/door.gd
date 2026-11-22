@@ -8,6 +8,8 @@ var door_open = false
 
 var player_nearby = false
 
+signal door_unlocked
+
 func _process(delta: float) -> void:
 	door_interaction()
 
@@ -25,6 +27,9 @@ func unlock_door():
 	if player_have_key == true:
 		door_locked = false
 		print("Дверь отперта!")
+		$DoorSprite.show()
+		$DoorLockedSprite.hide()
+		door_unlocked.emit()
 	else:
 		print("Дверь заперта. Нужен ключ!")
 		return
@@ -32,10 +37,16 @@ func unlock_door():
 func open_door():
 	door_open = true
 	print("Дверь открыта.")
+	$DoorSprite.hide()
+	$DoorOpenedSprite.show()
+	$StaticBody2D/DoorCollision.disabled = true
 
 func close_door():
 	door_open = false
 	print("Дверь закрыта.")
+	$DoorSprite.show()
+	$DoorOpenedSprite.hide()
+	$StaticBody2D/DoorCollision.disabled = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	player_nearby = true

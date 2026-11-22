@@ -1,14 +1,12 @@
 [gd_scene format=3 uid="uid://bshhoi1mmsbia"]
 
 [ext_resource type="Script" uid="uid://dq5ca8wg8rd7a" path="res://player.gd" id="1_f73ox"]
-[ext_resource type="Texture2D" uid="uid://c2ktovkgekwak" path="res://Sprites/Player_main.png" id="1_wqkee"]
+[ext_resource type="Texture2D" uid="uid://uuj341p8ufgt" path="res://Sprites/WeaponCrypt.png" id="2_3v44e"]
 [ext_resource type="Script" uid="uid://c7f1sbqwfvoyt" path="res://door.gd" id="3_45nqt"]
-[ext_resource type="Texture2D" uid="uid://dbhq1pw8hf48b" path="res://Sprites/Door Locked.png" id="4_3v44e"]
-[ext_resource type="Texture2D" uid="uid://g6rys42scc40" path="res://Sprites/Key.png" id="5_3v44e"]
 [ext_resource type="Script" uid="uid://bcovr2x0p5pnu" path="res://key.gd" id="5_g3df5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_822dq"]
-size = Vector2(29, 53)
+size = Vector2(43, 48)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ruqxh"]
 size = Vector2(50, 50)
@@ -17,7 +15,7 @@ size = Vector2(50, 50)
 size = Vector2(82, 78)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emy68"]
-size = Vector2(45, 22)
+size = Vector2(43, 29)
 
 [node name="MainNode2D" type="Node2D" unique_id=402872124]
 
@@ -26,10 +24,23 @@ position = Vector2(404, 389)
 collision_layer = 2
 script = ExtResource("1_f73ox")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1435625381]
-texture = ExtResource("1_wqkee")
+[node name="PlayerSprite" type="Sprite2D" parent="Player" unique_id=1435625381]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_3v44e")
+region_enabled = true
+region_rect = Rect2(49, 49, 12, 15)
+
+[node name="PlayerKeySprite" type="Sprite2D" parent="Player" unique_id=1534815992]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_3v44e")
+region_enabled = true
+region_rect = Rect2(66, 32, 14, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=945573357]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_822dq")
 
 [node name="Door" type="Node2D" parent="." unique_id=105114842]
@@ -38,11 +49,31 @@ script = ExtResource("3_45nqt")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Door" unique_id=1338284614]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D" unique_id=8700390]
+[node name="DoorCollision" type="CollisionShape2D" parent="Door/StaticBody2D" unique_id=8700390]
 shape = SubResource("RectangleShape2D_ruqxh")
 
-[node name="Sprite2D" type="Sprite2D" parent="Door" unique_id=1562474129]
-texture = ExtResource("4_3v44e")
+[node name="DoorLockedSprite" type="Sprite2D" parent="Door" unique_id=1562474129]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_3v44e")
+region_enabled = true
+region_rect = Rect2(128, 0, 16, 16)
+
+[node name="DoorSprite" type="Sprite2D" parent="Door" unique_id=1869319725]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_3v44e")
+region_enabled = true
+region_rect = Rect2(112, 0, 16, 16)
+
+[node name="DoorOpenedSprite" type="Sprite2D" parent="Door" unique_id=1045991277]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_3v44e")
+region_enabled = true
+region_rect = Rect2(144, 0, 16, 16)
 
 [node name="Area2D" type="Area2D" parent="Door" unique_id=219383147]
 light_mask = 3
@@ -57,16 +88,22 @@ position = Vector2(537, 297)
 script = ExtResource("5_g3df5")
 
 [node name="Sprite2D" type="Sprite2D" parent="Key" unique_id=1080245096]
-texture = ExtResource("5_3v44e")
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("2_3v44e")
+region_enabled = true
+region_rect = Rect2(112, 66, 16, 14)
 
 [node name="Area2D" type="Area2D" parent="Key" unique_id=1374685647]
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key/Area2D" unique_id=344103188]
-position = Vector2(-1.5, 1)
+position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_emy68")
 
+[connection signal="door_unlocked" from="Door" to="Player" method="_on_door_door_unlocked"]
 [connection signal="body_entered" from="Door/Area2D" to="Door" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Door/Area2D" to="Door" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="Key/Area2D" to="Player" method="_on_area_2d_PLAYER_entered"]
 [connection signal="body_entered" from="Key/Area2D" to="Door" method="_on_area_2d_PLAYER_entered"]
 [connection signal="body_entered" from="Key/Area2D" to="Key" method="_on_area_2d_PLAYER_entered"]
