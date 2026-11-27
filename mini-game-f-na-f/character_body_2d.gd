@@ -17,6 +17,5 @@ func _physics_process(delta: float) -> void:
 		velocity.y =+ speed
 	else:
 		velocity.y = 0
-	
-	velocity.normalized()
+	velocity = velocity.normalized() * speed
 	move_and_slide()
