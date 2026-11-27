@@ -2,18 +2,22 @@
 
 [ext_resource type="Script" uid="uid://hhgcxo3d2wa8" path="res://character_body_2d.gd" id="1_0e48y"]
 [ext_resource type="Texture2D" uid="uid://f3u254m1huj3" path="res://Sprites/Custom _ Edited - Five Nights at Freddy's Customs - Five Nights at Freddy's 1 - FNAF 1 Characters.png" id="2_epypp"]
+[ext_resource type="Script" uid="uid://dgrnm0imefcy6" path="res://transition.gd" id="3_epypp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67rvi"]
 size = Vector2(12, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ep6qi"]
-size = Vector2(337, 10)
+size = Vector2(340, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bttig"]
 size = Vector2(320, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r78xu"]
 size = Vector2(10, 250)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73pdi"]
+size = Vector2(19, 42)
 
 [node name="Node2D" type="Node2D" unique_id=1968007265]
 
@@ -32,18 +36,27 @@ shape = SubResource("RectangleShape2D_67rvi")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=884828482]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1252595233]
-position = Vector2(158.5, -5)
+[node name="WallTop" type="CollisionShape2D" parent="StaticBody2D" unique_id=1252595233]
+position = Vector2(160, -5)
 shape = SubResource("RectangleShape2D_ep6qi")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=267580150]
+[node name="WallBottom" type="CollisionShape2D" parent="StaticBody2D" unique_id=267580150]
 position = Vector2(160, 245)
 shape = SubResource("RectangleShape2D_bttig")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1411454168]
+[node name="WallLeft" type="CollisionShape2D" parent="StaticBody2D" unique_id=1411454168]
 position = Vector2(-5, 125)
 shape = SubResource("RectangleShape2D_r78xu")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=588634363]
+[node name="WallRight" type="CollisionShape2D" parent="StaticBody2D" unique_id=588634363]
 position = Vector2(325, 125)
 shape = SubResource("RectangleShape2D_r78xu")
+
+[node name="Transition" type="Area2D" parent="." unique_id=1174658272]
+script = ExtResource("3_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transition" unique_id=1980417572]
+position = Vector2(309, 199)
+shape = SubResource("RectangleShape2D_73pdi")
+
+[connection signal="body_entered" from="Transition" to="Transition" method="_on_body_entered"]
