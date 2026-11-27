@@ -1,3 +1,22 @@
 [gd_scene format=3 uid="uid://kooh6apk6y36"]
 
+[ext_resource type="Script" uid="uid://hhgcxo3d2wa8" path="res://character_body_2d.gd" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://f3u254m1huj3" path="res://Sprites/Custom _ Edited - Five Nights at Freddy's Customs - Five Nights at Freddy's 1 - FNAF 1 Characters.png" id="2_epypp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67rvi"]
+size = Vector2(12, 3)
+
 [node name="Node2D" type="Node2D" unique_id=1968007265]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1212023749]
+position = Vector2(37, 200)
+script = ExtResource("1_0e48y")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1750665969]
+texture = ExtResource("2_epypp")
+region_enabled = true
+region_rect = Rect2(32, 164, 11, 21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=2060780597]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_67rvi")
