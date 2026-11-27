@@ -24,6 +24,7 @@ size = Vector2(19, 42)
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1212023749]
 position = Vector2(37, 200)
 script = ExtResource("1_0e48y")
+speed = 100
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1750665969]
 texture = ExtResource("2_epypp")
