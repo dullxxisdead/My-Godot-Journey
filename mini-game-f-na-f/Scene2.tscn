@@ -13,3 +13,4 @@ position = Vector2(17, 201)
 
 [node name="Transition" parent="." unique_id=549060477 instance=ExtResource("2_tpvgd")]
 position = Vector2(291, 193)
+scene_number = "res://Scene1.tscn"

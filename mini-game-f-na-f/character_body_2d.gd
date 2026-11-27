@@ -6,8 +6,10 @@ extends CharacterBody2D
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Left"):
 		velocity.x =+ -speed
+		$Sprite2D.flip_h = false
 	elif Input.is_action_pressed("Right"):
 		velocity.x =+ speed
+		$Sprite2D.flip_h = true
 	else:
 		velocity.x = 0
 	
