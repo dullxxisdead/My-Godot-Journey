@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dddajwouufdgx"]
+
+[ext_resource type="Script" uid="uid://hhgcxo3d2wa8" path="res://character_body_2d.gd" id="1_onrkg"]
+[ext_resource type="Texture2D" uid="uid://f3u254m1huj3" path="res://Sprites/Custom _ Edited - Five Nights at Freddy's Customs - Five Nights at Freddy's 1 - FNAF 1 Characters.png" id="2_i3pqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67rvi"]
+size = Vector2(12, 3)
+
+[node name="Player" type="CharacterBody2D" unique_id=2027319904]
+position = Vector2(-3, 1)
+script = ExtResource("1_onrkg")
+speed = 80
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1978480542]
+texture = ExtResource("2_i3pqv")
+region_enabled = true
+region_rect = Rect2(32, 164, 11, 21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=977445140]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_67rvi")
