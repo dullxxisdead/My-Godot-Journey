@@ -1,20 +1,54 @@
 [gd_scene format=3 uid="uid://dddajwouufdgx"]
 
 [ext_resource type="Script" uid="uid://hhgcxo3d2wa8" path="res://character_body_2d.gd" id="1_onrkg"]
-[ext_resource type="Texture2D" uid="uid://f3u254m1huj3" path="res://Sprites/Custom _ Edited - Five Nights at Freddy's Customs - Five Nights at Freddy's 1 - FNAF 1 Characters.png" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://chi72gt3gf2xa" path="res://Sprites/Animation.png" id="2_onrkg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(64, 0, 32, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(0, 0, 32, 57)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(32, 0, 32, 57)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_67rvi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3pqv")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 3.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67rvi"]
-size = Vector2(12, 3)
+size = Vector2(30, 9.5)
 
 [node name="Player" type="CharacterBody2D" unique_id=2027319904]
 script = ExtResource("1_onrkg")
-speed = 80
+speed = 40
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1978480542]
-texture = ExtResource("2_i3pqv")
-region_enabled = true
-region_rect = Rect2(32, 164, 11, 21)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=694063017]
+sprite_frames = SubResource("SpriteFrames_67rvi")
+animation = &"walk"
+frame_progress = 0.3071524
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=977445140]
-position = Vector2(0, 9.5)
+position = Vector2(0, 22.75)
 shape = SubResource("RectangleShape2D_67rvi")

@@ -1,15 +1,82 @@
 [gd_scene format=3 uid="uid://kooh6apk6y36"]
 
+[ext_resource type="Texture2D" uid="uid://bewhno6fqtswg" path="res://Sprites/Rooms.png" id="1_acvur"]
 [ext_resource type="PackedScene" uid="uid://dddajwouufdgx" path="res://player.tscn" id="1_x3g6e"]
 [ext_resource type="PackedScene" uid="uid://duvn5sr71q6ol" path="res://walls.tscn" id="2_30lbi"]
 [ext_resource type="PackedScene" uid="uid://ysiko0f7upjf" path="res://transition.tscn" id="3_acvur"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67rvi"]
+size = Vector2(20, 159.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ombsg"]
+size = Vector2(21, 159)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8b0s"]
+size = Vector2(320, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5xdti"]
+size = Vector2(20, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otot6"]
+size = Vector2(21, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep6qi"]
+size = Vector2(279, 107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acvur"]
+size = Vector2(40.75, 14.25)
+
 [node name="Node2D" type="Node2D" unique_id=1968007265]
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1621971221]
+position = Vector2(160, 120)
+texture = ExtResource("1_acvur")
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 240)
+
 [node name="Player" parent="." unique_id=2027319904 instance=ExtResource("1_x3g6e")]
-position = Vector2(37, 200)
+position = Vector2(23, 187)
 
 [node name="Walls" parent="." unique_id=341506962 instance=ExtResource("2_30lbi")]
 
 [node name="Transition" parent="." unique_id=549060477 instance=ExtResource("3_acvur")]
-position = Vector2(305, 199)
+position = Vector2(326, 187)
+scale = Vector2(2, 2)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1366170892]
+position = Vector2(4, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=638234673]
+position = Vector2(6, 73.75)
+shape = SubResource("RectangleShape2D_67rvi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=195515130]
+position = Vector2(305.5, 73.5)
+shape = SubResource("RectangleShape2D_ombsg")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=488687203]
+position = Vector2(156, 227.5)
+shape = SubResource("RectangleShape2D_j8b0s")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=821773299]
+position = Vector2(6, 214.5)
+shape = SubResource("RectangleShape2D_5xdti")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=388664082]
+position = Vector2(305.5, 214.5)
+shape = SubResource("RectangleShape2D_otot6")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D" unique_id=291496053]
+position = Vector2(155.5, 47.5)
+shape = SubResource("RectangleShape2D_ep6qi")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D" unique_id=1161480800]
+position = Vector2(61.625, 107.875)
+shape = SubResource("RectangleShape2D_acvur")
+
+[node name="Rod" type="Sprite2D" parent="." unique_id=211161567]
+visible = false
+position = Vector2(160, 120)
+texture = ExtResource("1_acvur")
+region_enabled = true
+region_rect = Rect2(320, 0, 320, 240)
